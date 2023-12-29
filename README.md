@@ -1,2 +1,2 @@
-# java-script_note
+# javascript_note
 js notes

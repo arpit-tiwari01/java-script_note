@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1 id="title" class="heading">Learning Dom in javascript <span style="display: none;">test text</span></h1>
+        <h2 class ="h-2">Lorem, ipsum dolor.</h2>
+        <h2 class ="h-2">Lorem ipsum dolor sit.</h2>
+        <h2 class ="h-2">Lorem, ipsum.
+        </h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        <p id="newline">new paragraph in this file</p>
+
+        <ul>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+        </ul>
+    </div>
+</body>
+<script>
+
+
+//Acsess Dom element to modification 
+const title = document.getElementById('title')
+title.style.backgroundColor = 'green'
+title.style.padding = "15px"
+title.style.borderRadius = "10px"
+
+//for accsess value
+console.log(title.textContent);
+console.log(title.innerHTML);
+console.log(title.innerText);
+
+const heading = document.getElementsByClassName('heading')[0]
+console.log(heading);
+heading.style.backgroundColor = 'green'
+
+// access using quary Selactoe
+const ulList = document.querySelector('ul');
+console.log(ulList);
+const liList = ulList.querySelector('li')
+console.log(liList);
+liList.style.backgroundColor= "red"
+
+
+// use of quarySelectorAll
+templist = document.querySelectorAll('li');
+templist.forEach((l) => l.style.backgroundColor = 'red');  //use forEach becouse this is NodeList
+
+//when use class selector we get HTMLCollection
+const tempHeading = document.getElementsByClassName('h-2')
+console.log(tempHeading);
+const convertedtempHeading = Array.from(tempHeading);  // for looping converted into Array
+console.log(convertedtempHeading);
+convertedtempHeading.forEach(function(e){
+    e.style.color = "red";
+    convertedtempHeading[2].innerHTML='change using innerHTML'
+    convertedtempHeading[2].style.backgroundColor= 'white'
+
+})
+
+</script>
+</html>
